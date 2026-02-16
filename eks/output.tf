@@ -1,0 +1,33 @@
+output "cluster_id" {
+  description = "EKS cluster ID"
+  value       = aws_eks_cluster.test-cluster.id
+}
+
+output "cluster_endpoint" {
+  description = "Endpoint for EKS control plane"
+  value       = aws_eks_cluster.test-cluster.endpoint
+}
+
+output "cluster_security_group_id" {
+  description = "Security group ID attached to the EKS cluster"
+  value       = aws_eks_cluster.test-cluster.vpc_config[0].cluster_security_group_id
+}
+
+output "cluster_name" {
+  description = "Kubernetes Cluster Name"
+  value       = aws_eks_cluster.test-cluster.name
+}
+
+output "vpc_id" {
+  description = "VPC ID"
+  value       = aws_vpc.eks-vpc.id
+}
+
+output "subnet_ids" {
+  description = "Subnet IDs"
+  value = [
+    aws_subnet.az1.id,
+    aws_subnet.az2.id,
+    aws_subnet.az3.id,
+  ]
+}
