@@ -53,6 +53,7 @@ resource "aws_subnet" "az3" {
   }
 }
 
+
 # Route Table
 resource "aws_route_table" "main" {
   vpc_id = aws_vpc.eks-vpc.id
