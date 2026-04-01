@@ -27,3 +27,11 @@ output "ec2_public_ip" {
     k => v.public_ip
   }
 }
+
+
+output "ec2_names" {
+  value = {
+    for k, v in aws_instance.testinstance :
+    k => v.tags["Name"]
+  }
+}
