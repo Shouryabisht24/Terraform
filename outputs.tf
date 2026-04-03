@@ -15,10 +15,7 @@ output "subnet_id" {
 #}
 
 output "ec2_public_dns" {
-  value = {
-    for k, v in aws_instance.testinstance :
-    k => v.public_dns
-  }
+  value = [for instance in aws_instance.testinstance : instance.public_dns]
 }
 
 output "ec2_public_ip" {
